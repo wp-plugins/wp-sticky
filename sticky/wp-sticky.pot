@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.00\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-02-23 21:21+0800\n"
+"PO-Revision-Date: 2007-02-27 02:29+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -14,78 +14,73 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: sticky.php:39
-#: sticky.php:148
+#: sticky.php:43
+#: sticky.php:90
+#: sticky.php:189
 msgid "Sticky"
 msgstr ""
 
-#: sticky.php:177
-msgid "Sticky Options Updated"
-msgstr ""
-
-#: sticky.php:180
-msgid "No Sticky Option Updated"
-msgstr ""
-
-#: sticky.php:187
-msgid "Sticky Options"
-msgstr ""
-
-#: sticky.php:191
-msgid "Categories Only:"
-msgstr ""
-
-#: sticky.php:194
-#: sticky.php:204
-msgid "No"
-msgstr ""
-
-#: sticky.php:195
-#: sticky.php:205
-msgid "Yes"
-msgstr ""
-
-#: sticky.php:197
-msgid "Display sticky posts only when viewing categories."
-msgstr ""
-
-#: sticky.php:201
-msgid "Display Date:"
-msgstr ""
-
-#: sticky.php:207
-msgid "Displays the date instead of the <strong>Sticky Banner</strong> on sticky posts.<br />You can make use of the <strong>Sticky Text</strong> to denote a sticky post if you choose 'Yes' for this option."
-msgstr ""
-
-#: sticky.php:211
-msgid "Sticky Banner:"
-msgstr ""
-
-#: sticky.php:214
-msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
-msgstr ""
-
-#: sticky.php:218
-msgid "Sticky Text:"
-msgstr ""
-
-#: sticky.php:221
-msgid "Text to display beside the post title if the post is a sticky post."
-msgstr ""
-
-#: sticky.php:225
-msgid "Update Options"
-msgstr ""
-
-#: sticky.php:225
-msgid "Cancel"
-msgstr ""
-
-#: sticky.php:242
+#: sticky.php:93
+#: sticky.php:188
+#: sticky.php:276
 msgid "Announcement"
 msgstr ""
 
-#: sticky.php:243
-msgid "Sticky: "
+#: sticky.php:190
+msgid "Normal"
+msgstr ""
+
+#: sticky.php:218
+msgid "Sticky Options Updated"
+msgstr ""
+
+#: sticky.php:221
+msgid "No Sticky Option Updated"
+msgstr ""
+
+#: sticky.php:228
+msgid "Sticky Options"
+msgstr ""
+
+#: sticky.php:232
+msgid "Categories Only:"
+msgstr ""
+
+#: sticky.php:235
+#: sticky.php:245
+msgid "No"
+msgstr ""
+
+#: sticky.php:236
+#: sticky.php:246
+msgid "Yes"
+msgstr ""
+
+#: sticky.php:238
+msgid "Display announcement and sticky posts only when viewing categories."
+msgstr ""
+
+#: sticky.php:242
+msgid "Display Date:"
+msgstr ""
+
+#: sticky.php:248
+msgid "Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts."
+msgstr ""
+
+#: sticky.php:252
+msgid "Announcement Banner:"
+msgstr ""
+
+#: sticky.php:255
+msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
+msgstr ""
+
+#: sticky.php:259
+msgid "Update Options"
+msgstr ""
+
+#: sticky.php:259
+msgid "Cancel"
 msgstr ""
 
