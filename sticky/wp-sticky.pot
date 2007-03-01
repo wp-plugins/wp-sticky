@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.00\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-02-27 02:29+0800\n"
+"PO-Revision-Date: 2007-03-01 16:11+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,72 +15,76 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: sticky.php:43
-#: sticky.php:90
-#: sticky.php:189
+#: sticky.php:105
+#: sticky.php:209
 msgid "Sticky"
 msgstr ""
 
-#: sticky.php:93
-#: sticky.php:188
-#: sticky.php:276
+#: sticky.php:108
+#: sticky.php:208
+#: sticky.php:295
 msgid "Announcement"
 msgstr ""
 
-#: sticky.php:190
+#: sticky.php:206
+msgid "Post Sticky Status"
+msgstr ""
+
+#: sticky.php:210
 msgid "Normal"
 msgstr ""
 
-#: sticky.php:218
+#: sticky.php:229
 msgid "Sticky Options Updated"
 msgstr ""
 
-#: sticky.php:221
+#: sticky.php:232
 msgid "No Sticky Option Updated"
 msgstr ""
 
-#: sticky.php:228
+#: sticky.php:239
 msgid "Sticky Options"
 msgstr ""
 
-#: sticky.php:232
+#: sticky.php:243
 msgid "Categories Only:"
 msgstr ""
 
-#: sticky.php:235
-#: sticky.php:245
+#: sticky.php:246
+#: sticky.php:256
 msgid "No"
 msgstr ""
 
-#: sticky.php:236
-#: sticky.php:246
+#: sticky.php:247
+#: sticky.php:257
 msgid "Yes"
 msgstr ""
 
-#: sticky.php:238
+#: sticky.php:249
 msgid "Display announcement and sticky posts only when viewing categories."
 msgstr ""
 
-#: sticky.php:242
+#: sticky.php:253
 msgid "Display Date:"
 msgstr ""
 
-#: sticky.php:248
+#: sticky.php:259
 msgid "Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts."
 msgstr ""
 
-#: sticky.php:252
+#: sticky.php:263
 msgid "Announcement Banner:"
 msgstr ""
 
-#: sticky.php:255
+#: sticky.php:266
 msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
 msgstr ""
 
-#: sticky.php:259
+#: sticky.php:270
 msgid "Update Options"
 msgstr ""
 
-#: sticky.php:259
+#: sticky.php:270
 msgid "Cancel"
 msgstr ""
 

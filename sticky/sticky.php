@@ -52,9 +52,24 @@ function get_sticky_option($option) {
 }
 
 
+### Function: Check Whether In Category
+if(!function_exists('check_in_category')) {
+	function check_in_category() {
+		$category_base = get_option('category_base');
+		if(empty($category_base)) {
+			$category_base = '/category';
+		}
+		if(strpos($_SERVER['REQUEST_URI'], $category_base) !== false || intval($_GET['cat']) > 0) {
+			return true;
+		}
+		return false;
+	}
+}
+
+
 ### Function: Sticky Query
 if(intval(get_sticky_option('category_only')) == 1) {
-	if(true) {
+	if(check_in_category()) {
 		add_filter('posts_fields', 'sticky_fields');
 		add_filter('posts_join', 'sticky_join');
 		add_filter('posts_orderby', 'sticky_orderby', 1);
@@ -122,7 +137,7 @@ function sticky_the_date($content) {
 add_filter('the_title', 'sticky_the_title');
 function sticky_the_title($content) {
 	global $post;
-	if(preg_match('|edit.php|i', $_SERVER['REQUEST_URI']) && ($post->sticky_status > 0)) {
+	if(strpos($_SERVER['REQUEST_URI'], '/edit.php') !== false && ($post->sticky_status > 0)) {
 		 $content = post_sticky_status('', '', false).': '.$content;
 	}
 	return $content;
@@ -133,11 +148,16 @@ function sticky_the_title($content) {
 //add_filter('the_content', 'sticky_the_content');
 function sticky_the_content($content) {
 	global $post;
-	if($post->sticky_status > 0) {
-		return "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').parentNode.className += ' adhesive_post';</script>$content";
-	} else {
-		return  $content;
+	$css_style = '';
+	switch($post->sticky_status) {
+		case 1:
+			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').parentNode.className += 'sticky_post';</script>";
+			break;
+		case 2:
+			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').parentNode.className += 'announcement_post';</script>";
+			break;
 	}
+	return $css_style.$content;
 }
 
 
@@ -172,10 +192,8 @@ function delete_sticky_admin_process($post_ID) {
 
 
 ### Function: Add Sticky To Admin
-add_action('edit_page_form', 'add_sticky_admin');
-add_action('edit_form_advanced', 'add_sticky_admin');
-add_action('simple_edit_form', 'add_sticky_admin');
-function add_sticky_admin($content) {
+add_action('dbx_post_sidebar', 'sticky_admin');
+function sticky_admin() {
 	global $wpdb;
 	$edit_post = intval($_GET['post']);
 	$post_status_sticky_id = 0;
@@ -184,21 +202,14 @@ function add_sticky_admin($content) {
 		$post_status_sticky_status = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $edit_post"));
 	}
 ?>
-<div id="stickydiv">
-	<label for="post_status_announcement" class="selectit"><input type="radio" id="post_status_announcement" name="post_status_sticky" value="2"<?php checked($post_status_sticky_status, 2); ?>/>&nbsp;<?php _e('Announcement', 'wp-sticky'); ?></label>
-	<label for="post_status_sticky" class="selectit"><input type="radio" id="post_status_sticky" name="post_status_sticky" value="1"<?php checked($post_status_sticky_status, 1); ?>/>&nbsp;<?php _e('Sticky', 'wp-sticky'); ?></label>
-	<label for="post_status_normal" class="selectit"><input type="radio" id="post_status_normal" name="post_status_sticky" value="0"<?php checked($post_status_sticky_status, 0); ?>/>&nbsp;<?php _e('Normal', 'wp-sticky'); ?></label>
-</div>
-<script type="text/javascript">
-	var placement = document.getElementById("post_status_private");
-	var substitution = document.getElementById("stickydiv");
-	var mozilla = document.getElementById&&!document.all;
-	if(mozilla) {
-		placement.parentNode.parentNode.appendChild(substitution);
-	} else { 
-		placement.parentElement.parentElement.appendChild(substitution);
-	}
-</script>
+<fieldset id="poststickystatusdiv" class="dbx-box">
+	<h3 class="dbx-handle"><?php _e('Post Sticky Status', 'wp-sticky'); ?></h3> 
+	<div class="dbx-content">
+		<label for="post_status_announcement" class="selectit"><input type="radio" id="post_status_announcement" name="post_status_sticky" value="2"<?php checked($post_status_sticky_status, 2); ?>/>&nbsp;<?php _e('Announcement', 'wp-sticky'); ?></label>
+		<label for="post_status_sticky" class="selectit"><input type="radio" id="post_status_sticky" name="post_status_sticky" value="1"<?php checked($post_status_sticky_status, 1); ?>/>&nbsp;<?php _e('Sticky', 'wp-sticky'); ?></label>
+		<label for="post_status_normal" class="selectit"><input type="radio" id="post_status_normal" name="post_status_sticky" value="0"<?php checked($post_status_sticky_status, 0); ?>/>&nbsp;<?php _e('Normal', 'wp-sticky'); ?></label>
+	</div>
+</fieldset>
 <?php
 }
 
@@ -267,6 +278,14 @@ function sticky_options() {
 ### Function: Sticky Init
 add_action('activate_sticky/sticky.php', 'sticky_init');
 function sticky_init() {
+	global $wpdb;
+	include_once(ABSPATH.'/wp-admin/upgrade-functions.php');
+	// Create Sticky Table
+	$create_sticky_sql = "CREATE TABLE $wpdb->sticky (".
+								"sticky_post_id bigint(20) NOT NULL,".
+								"sticky_status tinyint(1) NOT NULL default '0',".
+								"PRIMARY KEY (sticky_post_id))";
+	maybe_create_table($wpdb->sticky, $create_sticky_sql);
 	// Delete Options First
 	delete_option('sticky_options');
 	// Add Options

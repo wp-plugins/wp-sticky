@@ -346,9 +346,26 @@
 			<div class="SubTitle">&raquo; Usage Instructions</div>
 			<div class="SubSubTitle">General Usage</div>
 			<ol>
-				<li>You can configure the options in '<strong>WP-Admin -> Options -> Sticky</strong>'.</li>
-				<li>You can find the 'Sticky' Option under '<strong>Post Status</strong>' Options in the '<strong>Write/Edit Post Screen</strong>'.</li>
+				<li>You can configure WP-Sticky options in '<strong>WP-Admin -> Options -> Sticky</strong>'.</li>
+				<li>You can find the post's '<strong>Sticky</strong>' Option under '<strong>Post Sticky Status</strong>' Options in the '<strong>Write/Edit Post Screen</strong>'.</li>
 			</ol>
+			<div class="SubSubTitle">Displaying Post Sticky Status (Inside The WP Loop)</div>
+			<ul>
+				<li>
+					To Display <b>Most Number Of Users Online</b>
+				</li>
+				<li>
+					Use:
+					<blockquote>
+						&lt;?php post_sticky_status(); ?&gt;
+					</blockquote>
+					<p>Default: post_sticky_status('','');</p>
+					<p>
+						The first value: The text to appear before displaying the post's sticky status.<br />
+						The second value: The text to appear after displaying the post's sticky status.
+					</p>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
