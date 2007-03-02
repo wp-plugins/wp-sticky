@@ -162,7 +162,6 @@ function sticky_the_content($content) {
 
 
 ### Function: Processing Sticky Post
-add_action('edit_post', 'add_sticky_admin_process');
 add_action('save_post', 'add_sticky_admin_process');
 function add_sticky_admin_process($post_ID) {
 	global $wpdb;
@@ -173,11 +172,11 @@ function add_sticky_admin_process($post_ID) {
 	// Sticky Post/ Announcement Post
 	} else {
 		// Ensure No Duplicate Field
-		$check = $wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $post_ID");
-		if(!$check) {
+		$check = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $post_ID"));
+		if($check == 0) {
 			$wpdb->query("INSERT INTO $wpdb->sticky VALUES($post_ID, $post_status_sticky_status)");
 		} else {
-			 $wpdb->query("UPDATE $wpdb->sticky SET sticky_status = $post_status_sticky_status WHERE sticky_post_id = $post_ID");
+			$wpdb->query("UPDATE $wpdb->sticky SET sticky_status = $post_status_sticky_status WHERE sticky_post_id = $post_ID");
 		}
 	}
 }

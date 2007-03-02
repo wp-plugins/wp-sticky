@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.00\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-03-01 16:11+0800\n"
+"PO-Revision-Date: 2007-03-02 22:41+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,75 +16,75 @@ msgstr ""
 
 #: sticky.php:43
 #: sticky.php:105
-#: sticky.php:209
+#: sticky.php:208
 msgid "Sticky"
 msgstr ""
 
 #: sticky.php:108
-#: sticky.php:208
-#: sticky.php:295
+#: sticky.php:207
+#: sticky.php:294
 msgid "Announcement"
 msgstr ""
 
-#: sticky.php:206
+#: sticky.php:205
 msgid "Post Sticky Status"
 msgstr ""
 
-#: sticky.php:210
+#: sticky.php:209
 msgid "Normal"
 msgstr ""
 
-#: sticky.php:229
+#: sticky.php:228
 msgid "Sticky Options Updated"
 msgstr ""
 
-#: sticky.php:232
+#: sticky.php:231
 msgid "No Sticky Option Updated"
 msgstr ""
 
-#: sticky.php:239
+#: sticky.php:238
 msgid "Sticky Options"
 msgstr ""
 
-#: sticky.php:243
+#: sticky.php:242
 msgid "Categories Only:"
+msgstr ""
+
+#: sticky.php:245
+#: sticky.php:255
+msgid "No"
 msgstr ""
 
 #: sticky.php:246
 #: sticky.php:256
-msgid "No"
-msgstr ""
-
-#: sticky.php:247
-#: sticky.php:257
 msgid "Yes"
 msgstr ""
 
-#: sticky.php:249
+#: sticky.php:248
 msgid "Display announcement and sticky posts only when viewing categories."
 msgstr ""
 
-#: sticky.php:253
+#: sticky.php:252
 msgid "Display Date:"
 msgstr ""
 
-#: sticky.php:259
+#: sticky.php:258
 msgid "Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts."
 msgstr ""
 
-#: sticky.php:263
+#: sticky.php:262
 msgid "Announcement Banner:"
 msgstr ""
 
-#: sticky.php:266
+#: sticky.php:265
 msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
 msgstr ""
 
-#: sticky.php:270
+#: sticky.php:269
 msgid "Update Options"
 msgstr ""
 
-#: sticky.php:270
+#: sticky.php:269
 msgid "Cancel"
 msgstr ""
 
