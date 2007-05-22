@@ -71,13 +71,13 @@ if(!function_exists('check_in_category')) {
 if(intval(get_sticky_option('category_only')) == 1) {
 	if(check_in_category()) {
 		add_filter('posts_fields', 'sticky_fields');
-		add_filter('posts_join', 'sticky_join');
+		//add_filter('posts_join', 'sticky_join');
 		add_filter('posts_join_paged', 'sticky_join');
 		add_filter('posts_orderby', 'sticky_orderby', 1);
 	}
 } else {
 	add_filter('posts_fields', 'sticky_fields');
-	add_filter('posts_join', 'sticky_join');
+	//add_filter('posts_join', 'sticky_join');
 	add_filter('posts_join_paged', 'sticky_join');
 	add_filter('posts_orderby', 'sticky_orderby', 1);
 }
