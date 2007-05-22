@@ -72,11 +72,13 @@ if(intval(get_sticky_option('category_only')) == 1) {
 	if(check_in_category()) {
 		add_filter('posts_fields', 'sticky_fields');
 		add_filter('posts_join', 'sticky_join');
+		add_filter('posts_join_paged', 'sticky_join');
 		add_filter('posts_orderby', 'sticky_orderby', 1);
 	}
 } else {
 	add_filter('posts_fields', 'sticky_fields');
 	add_filter('posts_join', 'sticky_join');
+	add_filter('posts_join_paged', 'sticky_join');
 	add_filter('posts_orderby', 'sticky_orderby', 1);
 }
 function sticky_fields($content) {
@@ -112,6 +114,28 @@ function post_sticky_status($before = '', $after = '', $display = true) {
 		echo $temp;
 	} else {
 		return $temp;
+	}
+}
+
+
+### Function: If Sticky Condition
+function is_sticky() {
+	global $id, $post;
+	if($post->sticky_status == 1) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+### Function: If Announcement Condition
+function is_announcement() {
+	global $id, $post;
+	if($post->sticky_status == 2) {
+		return true;
+	} else {
+		return false;
 	}
 }
 
@@ -169,7 +193,7 @@ function add_sticky_admin_process($post_ID) {
 	// Normal Posts
 	if($post_status_sticky_status == 0 && intval($post_ID) > 0) {
 		$wpdb->query("DELETE FROM $wpdb->sticky WHERE sticky_post_id = $post_ID");
-	// Sticky Post/ Announcement Post
+	// Sticky Post/Announcement Post
 	} else {
 		// Ensure No Duplicate Field
 		$check = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $post_ID"));

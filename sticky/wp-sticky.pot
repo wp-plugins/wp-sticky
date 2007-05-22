@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.00\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-03-02 22:41+0800\n"
+"PO-Revision-Date: 2007-05-22 18:24+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,76 +15,76 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: sticky.php:43
-#: sticky.php:105
-#: sticky.php:208
+#: sticky.php:107
+#: sticky.php:232
 msgid "Sticky"
 msgstr ""
 
-#: sticky.php:108
-#: sticky.php:207
-#: sticky.php:294
+#: sticky.php:110
+#: sticky.php:231
+#: sticky.php:318
 msgid "Announcement"
 msgstr ""
 
-#: sticky.php:205
+#: sticky.php:229
 msgid "Post Sticky Status"
 msgstr ""
 
-#: sticky.php:209
+#: sticky.php:233
 msgid "Normal"
 msgstr ""
 
-#: sticky.php:228
+#: sticky.php:252
 msgid "Sticky Options Updated"
 msgstr ""
 
-#: sticky.php:231
+#: sticky.php:255
 msgid "No Sticky Option Updated"
 msgstr ""
 
-#: sticky.php:238
+#: sticky.php:262
 msgid "Sticky Options"
 msgstr ""
 
-#: sticky.php:242
+#: sticky.php:266
 msgid "Categories Only:"
 msgstr ""
 
-#: sticky.php:245
-#: sticky.php:255
+#: sticky.php:269
+#: sticky.php:279
 msgid "No"
 msgstr ""
 
-#: sticky.php:246
-#: sticky.php:256
+#: sticky.php:270
+#: sticky.php:280
 msgid "Yes"
 msgstr ""
 
-#: sticky.php:248
+#: sticky.php:272
 msgid "Display announcement and sticky posts only when viewing categories."
 msgstr ""
 
-#: sticky.php:252
+#: sticky.php:276
 msgid "Display Date:"
 msgstr ""
 
-#: sticky.php:258
+#: sticky.php:282
 msgid "Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts."
 msgstr ""
 
-#: sticky.php:262
+#: sticky.php:286
 msgid "Announcement Banner:"
 msgstr ""
 
-#: sticky.php:265
+#: sticky.php:289
 msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
 msgstr ""
 
-#: sticky.php:269
+#: sticky.php:293
 msgid "Update Options"
 msgstr ""
 
-#: sticky.php:269
+#: sticky.php:293
 msgid "Cancel"
 msgstr ""
 
