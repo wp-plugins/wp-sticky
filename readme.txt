@@ -1,7 +1,7 @@
 === WP-Sticky ===
 Contributors: GamerZ
 Donate link: http://www.lesterchan.net/wordpress
-Tags: sticky, post, announcement, sticky post, stick, important
+Tags: sticky, post, announcement, sticky post, stick, important, adhesive
 Requires at least: 2.1.0
 Stable tag: 1.00
 
