@@ -3,13 +3,13 @@ Contributors: GamerZ
 Donate link: http://www.lesterchan.net/wordpress
 Tags: sticky, post, announcement, sticky post, stick, important
 Requires at least: 2.1.0
-Stable tag: trunk
+Stable tag: 1.00
 
 Adds a sticky post feature to your WordPress's blog.
 
 == Description ==
 
-Modified From Adhesive By Owen Winkler.
+Modified from Adhesive by Owen Winkler.
 
 All the information (general, changelog, installation, upgrade, usage) you need about this plugin can be found here: [WP-Sticky Readme](http://www.lesterchan.net/wordpress/readme/wp-sticky.html "WP-Sticky Readme").
 It is the exact same readme.html is included in the zip package.
