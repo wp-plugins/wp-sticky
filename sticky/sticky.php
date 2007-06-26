@@ -3,7 +3,7 @@
 Plugin Name: WP-Sticky
 Plugin URI: http://www.lesterchan.net/portfolio/programming.php
 Description: Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by Owen Winkler.
-Version: 1.00
+Version: 1.10
 Author: Lester 'GaMerZ' Chan
 Author URI: http://www.lesterchan.net
 */
@@ -40,7 +40,7 @@ $wpdb->sticky = $table_prefix . 'sticky';
 add_action('admin_menu', 'sticky_menu');
 function sticky_menu() {
 	if (function_exists('add_options_page')) {
-		add_options_page(__('Sticky', 'wp-sticky'), __('Sticky', 'wp-sticky'), 'manage_options', 'sticky/sticky.php', 'sticky_options');
+		add_options_page(__('Sticky', 'wp-sticky'), __('Sticky', 'wp-sticky'), 'manage_options', 'sticky/sticky-options.php');
 	}
 }
 
@@ -237,67 +237,6 @@ function sticky_admin() {
 }
 
 
-### Function: Sticky Options
-function sticky_options() {
-	global $wpdb;
-	$text = '';
-	$sticky_options = array();
-	$sticky_options = get_option('sticky_options');
-	if($_POST['Submit']) {
-		$sticky_options['display_date'] = intval($_POST['display_date']);
-		$sticky_options['category_only'] = intval($_POST['category_only']);
-		$sticky_options['announcement_banner'] = trim($_POST['announcement_banner']);		
-		$update_sticky_options = update_option('sticky_options', $sticky_options);
-		if($update_sticky_options) {
-			$text = '<font color="green">'.__('Sticky Options Updated', 'wp-sticky').'</font>';
-		}
-		if(empty($text)) {
-			$text = '<font color="red">'.__('No Sticky Option Updated', 'wp-sticky').'</font>';
-		}
-	}
-?>
-<?php if(!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade"><p>'.$text.'</p></div>'; } ?>
-<!-- Sticky Options -->
-<div class="wrap">
-	<h2><?php _e('Sticky Options', 'wp-sticky'); ?></h2>
-	<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-		<table width="100%" cellspacing="3" cellpadding="3" border="0">
-			<tr>
-				<td valign="top"><strong><?php _e('Categories Only:', 'wp-sticky'); ?></strong></td>
-				<td>
-					<select name="category_only">
-						<option value="0"<?php selected('0', $sticky_options['category_only']); ?>><?php _e('No', 'wp-sticky'); ?></option>
-						<option value="1"<?php selected('1', $sticky_options['category_only']); ?>><?php _e('Yes', 'wp-sticky'); ?></option>
-					</select>
-					<br /><?php _e('Display announcement and sticky posts only when viewing categories.', 'wp-sticky'); ?>
-				</td>
-			</tr>
-			<tr>
-				<td valign="top"><strong><?php _e('Display Date:', 'wp-sticky'); ?></strong></td>
-				<td>
-					<select name="display_date">
-						<option value="0"<?php selected('0', $sticky_options['display_date']); ?>><?php _e('No', 'wp-sticky'); ?></option>
-						<option value="1"<?php selected('1', $sticky_options['display_date']); ?>><?php _e('Yes', 'wp-sticky'); ?></option>
-					</select>
-					<br /><?php _e('Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts.', 'wp-sticky'); ?>
-				</td>
-			</tr>
-			<tr>
-				<td valign="top"><strong><?php _e('Announcement Banner:', 'wp-sticky'); ?></strong></td>
-				<td>
-					<input type="text" name="announcement_banner" size="60" value="<?php echo htmlentities($sticky_options['announcement_banner']); ?>" />
-					<br /><?php _e('This banner is displayed instead of the date if you choose \'No\' for <strong>Display Date</strong>.', 'wp-sticky'); ?>
-				</td>
-			</tr>
-			<tr>
-				<td width="100%" colspan="2" align="center"><input type="submit" name="Submit" class="button" value="<?php _e('Update Options', 'wp-sticky'); ?>" />&nbsp;&nbsp;<input type="button" name="cancel" value="<?php _e('Cancel', 'wp-sticky'); ?>" class="button" onclick="javascript:history.go(-1)" /></td>
-			</tr>
-		</table>
-	</form>
-<?php
-}
-
-
 ### Function: Sticky Init
 add_action('activate_sticky/sticky.php', 'sticky_init');
 function sticky_init() {
@@ -309,8 +248,6 @@ function sticky_init() {
 								"sticky_status tinyint(1) NOT NULL default '0',".
 								"PRIMARY KEY (sticky_post_id))";
 	maybe_create_table($wpdb->sticky, $create_sticky_sql);
-	// Delete Options First
-	delete_option('sticky_options');
 	// Add Options
 	$sticky_options = array();
 	$sticky_options['category_only'] = 0;
