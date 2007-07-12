@@ -289,6 +289,7 @@
 				<li>
 					<strong>Version 1.10 (01-10-2007)</strong>
 					<ul>
+						<li>NEW: Added announcement_banner(); For Those Not Using the_date();</li>
 						<li>NEW: Ability To Uninstall WP-Sticky</li>
 						<li>NEW: Moved Sticky Options From sticky.php To sticky-options.php</li>
 					</ul>
@@ -353,8 +354,9 @@
 			<ol>
 				<li>You can configure WP-Sticky options in '<strong>WP-Admin -> Options -> Sticky</strong>'.</li>
 				<li>You can find the post's '<strong>Sticky</strong>' Option under '<strong>Post Sticky Status</strong>' Options in the '<strong>Write/Edit Post Screen</strong>'.</li>
+				<li>Want to know what is the difference between Announcement Posts and Sticky Posts? <a href="http://www.lesterchan.net/wordpress/2007/02/25/wp-sticky-new-ideas/">Check it out here</a>.</li>	
 			</ol>
-			<div class="SubSubTitle">Displaying Post Sticky Status (Inside The WP Loop)</div>
+			<div class="SubSubTitle">Displaying WP-Sticky (Inside The WP Loop)</div>
 			<ul>
 				<li>
 					To Display <strong>The Post Sticky Status</strong>
@@ -367,8 +369,52 @@
 					<p>Default: post_sticky_status('','');</p>
 					<p>
 						The first value: The text to appear before displaying the post's sticky status.<br />
-						The second value: The text to appear after displaying the post's sticky status.
+						The second value: The text to appear after displaying the post's sticky status.<br />
+						Note: The post's sticky status is either <strong>Sticky</strong> or <strong>Announcement</strong>.
 					</p>
+				</li>
+				<li>
+					To Display <strong>Announcement Banner</strong>
+				</li>
+				<li>
+					By <strong>default</strong>, the Announcement Banner will be displayed if your theme is using <strong>the_date();</strong> within its templates. But if your theme is not using the_date(); and you want to display the Announcement Banner<br /><br />
+					Use:
+					<blockquote>
+						&lt;?php announcement_banner(); ?&gt;
+					</blockquote>
+				</li>
+			</ul>
+			<div class="SubSubTitle">Checking Post Sticky Status</div>
+			<ul>
+				<li>
+					To Check If A <strong>Post Is Announcement</strong>
+				</li>
+				<li>
+					Use:
+					<blockquote>
+						&lt;?php<br />
+						&nbsp;&nbsp;&nbsp;if(is_announcement()):<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If post is an Announcement<br />
+						&nbsp;&nbsp;&nbsp;else:<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If post is NOT an Announcement<br />
+						&nbsp;&nbsp;&nbsp;endif;<br />
+						?&gt;
+					</blockquote>
+				</li>
+				<li>
+					To Check If A <strong>Post Is Sticky</strong>
+				</li>
+				<li>
+					Use:
+					<blockquote>
+						&lt;?php<br />
+						&nbsp;&nbsp;&nbsp;if(is_sticky()):<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If post is Sticky<br />
+						&nbsp;&nbsp;&nbsp;else:<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// If post is NOT Sticky<br />
+						&nbsp;&nbsp;&nbsp;endif;<br />
+						?&gt;
+					</blockquote>
 				</li>
 			</ul>
 		</div>

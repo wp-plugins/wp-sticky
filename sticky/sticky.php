@@ -140,6 +140,25 @@ function is_announcement() {
 }
 
 
+### Function: Display Announcement Banner
+function announcement_banner($display = true) {
+	global $post, $printed_announcement;
+	if($post->sticky_status == 2 && intval(get_sticky_option('display_date')) == 0) {
+		if($printed_announcement) {
+			return;
+		} else {
+			$printed_announcement = true;
+			if($display) {
+				echo get_sticky_option('announcement_banner');
+			} else {
+				return get_sticky_option('announcement_banner');
+			}
+		}
+	}
+	return $content;
+}
+
+
 ### Function: Sticky The Date
 add_filter('the_date', 'sticky_the_date');
 function sticky_the_date($content) {
