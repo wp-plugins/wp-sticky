@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WP-Sticky
-Plugin URI: http://www.lesterchan.net/portfolio/programming.php
+Plugin URI: http://lesterchan.net/portfolio/programming.php
 Description: Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by Owen Winkler.
 Version: 1.10
 Author: Lester 'GaMerZ' Chan
-Author URI: http://www.lesterchan.net
+Author URI: http://lesterchan.net
 */
 
 
