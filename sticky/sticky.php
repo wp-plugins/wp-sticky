@@ -260,7 +260,13 @@ function sticky_admin() {
 add_action('activate_sticky/sticky.php', 'sticky_init');
 function sticky_init() {
 	global $wpdb;
-	include_once(ABSPATH.'/wp-admin/upgrade-functions.php');
+	if(@is_file(ABSPATH.'/wp-admin/upgrade-functions.php')) {
+		include_once(ABSPATH.'/wp-admin/upgrade-functions.php');
+	} elseif(@is_file(ABSPATH.'/wp-admin/includes/upgrade.php')) {
+		include_once(ABSPATH.'/wp-admin/includes/upgrade.php');
+	} else {
+		die('We have problem finding your \'/wp-admin/upgrade-functions.php\' and \'/wp-admin/includes/upgrade.php\'');
+	}
 	// Create Sticky Table
 	$create_sticky_sql = "CREATE TABLE $wpdb->sticky (".
 								"sticky_post_id bigint(20) NOT NULL,".
