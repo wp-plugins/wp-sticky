@@ -29,7 +29,10 @@ Author URI: http://lesterchan.net
 
 
 ### Create Text Domain For Translations
-load_plugin_textdomain('wp-sticky', 'wp-content/plugins/sticky');
+add_action('init', 'sticky_textdomain');
+function sticky_textdomain() {
+	load_plugin_textdomain('wp-sticky', 'wp-content/plugins/sticky');
+}
 
 
 ### Sticky Table Name
