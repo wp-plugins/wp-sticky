@@ -2,7 +2,7 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.1 Plugin: WP-Sticky 1.10										|
+|	WordPress 2.1 Plugin: WP-Sticky 1.30										|
 |	Copyright (c) 2007 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
@@ -11,7 +11,7 @@
 |																							|
 |	File Information:																	|
 |	- WP-Sticky Options																|
-|	- wp-content/plugins/sticky/sticky-options.php							|
+|	- wp-content/plugins/wp-sticky/sticky-options.php					|
 |																							|
 +----------------------------------------------------------------+
 */
@@ -24,31 +24,31 @@ if(!current_user_can('manage_options')) {
 
 
 ### Variables
-$base_name = plugin_basename('sticky/sticky-options.php');
+$base_name = plugin_basename('wp-sticky/sticky-options.php');
 $base_page = 'admin.php?page='.$base_name;
 $mode = trim($_GET['mode']);
 $sticky_tables = array($wpdb->sticky);
 $sticky_settings = array('sticky_options');
 
 
-### Form Processing 
+### Form Processing
+// Update Options
+if(!empty($_POST['Submit'])) {
+	$text = '';
+	$sticky_options['display_date'] = intval($_POST['display_date']);
+	$sticky_options['category_only'] = intval($_POST['category_only']);
+	$sticky_options['announcement_banner'] = trim($_POST['announcement_banner']);		
+	$update_sticky_options = update_option('sticky_options', $sticky_options);
+	if($update_sticky_options) {
+		$text = '<font color="green">'.__('Sticky Options Updated', 'wp-sticky').'</font>';
+	}
+	if(empty($text)) {
+		$text = '<font color="red">'.__('No Sticky Option Updated', 'wp-sticky').'</font>';
+	}
+}
+// Uninstall WP-Sticky
 if(!empty($_POST['do'])) {
-	// Decide What To Do
-	switch($_POST['do']) {
-		case __('Update Options', 'wp-sticky'):
-			$text = '';
-			$sticky_options['display_date'] = intval($_POST['display_date']);
-			$sticky_options['category_only'] = intval($_POST['category_only']);
-			$sticky_options['announcement_banner'] = trim($_POST['announcement_banner']);		
-			$update_sticky_options = update_option('sticky_options', $sticky_options);
-			if($update_sticky_options) {
-				$text = '<font color="green">'.__('Sticky Options Updated', 'wp-sticky').'</font>';
-			}
-			if(empty($text)) {
-				$text = '<font color="red">'.__('No Sticky Option Updated', 'wp-sticky').'</font>';
-			}
-			break;
-		// Uninstall WP-Sticky
+	switch($_POST['do']) {		
 		case __('UNINSTALL WP-Sticky', 'wp-sticky') :
 			if(trim($_POST['uninstall_sticky_yes']) == 'yes') {
 				echo '<div id="message" class="updated fade">';
@@ -86,9 +86,9 @@ if(!empty($_POST['do'])) {
 switch($mode) {
 		//  Deactivating WP-Sticky
 		case 'end-UNINSTALL':
-			$deactivate_url = 'plugins.php?action=deactivate&amp;plugin=sticky/sticky.php';
+			$deactivate_url = 'plugins.php?action=deactivate&amp;plugin=wp-sticky/wp-sticky.php';
 			if(function_exists('wp_nonce_url')) { 
-				$deactivate_url = wp_nonce_url($deactivate_url, 'deactivate-plugin_sticky/sticky.php');
+				$deactivate_url = wp_nonce_url($deactivate_url, 'deactivate-plugin_wp-sticky/wp-sticky.php');
 			}
 			echo '<div class="wrap">';
 			echo '<h2>'.__('Uninstall WP-Sticky', 'wp-sticky').'</h2>';
@@ -104,6 +104,9 @@ switch($mode) {
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 <div class="wrap">
 	<h2><?php _e('Sticky Options', 'wp-sticky'); ?></h2>
+	<p class="submit">
+		<input type="submit" name="Submit" class="button" value="<?php _e('Update Options &raquo;', 'wp-sticky'); ?>" />
+	</p>
 	<table width="100%" cellspacing="3" cellpadding="3" border="0">
 		<tr>
 			<td valign="top"><strong><?php _e('Categories Only:', 'wp-sticky'); ?></strong></td>
@@ -132,10 +135,10 @@ switch($mode) {
 				<br /><?php _e('This banner is displayed instead of the date if you choose \'No\' for <strong>Display Date</strong>.', 'wp-sticky'); ?>
 			</td>
 		</tr>
-		<tr>
-			<td width="100%" colspan="2" align="center"><input type="submit" name="do" class="button" value="<?php _e('Update Options', 'wp-sticky'); ?>" />&nbsp;&nbsp;<input type="button" name="cancel" value="<?php _e('Cancel', 'wp-sticky'); ?>" class="button" onclick="javascript:history.go(-1)" /></td>
-		</tr>
 	</table>
+	<p class="submit">
+		<input type="submit" name="Submit" class="button" value="<?php _e('Update Options &raquo;', 'wp-sticky'); ?>" />
+	</p>
 </div>
 </form>
 

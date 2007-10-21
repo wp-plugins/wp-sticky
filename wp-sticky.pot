@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-Sticky 1.10\n"
+"Project-Id-Version: WP-Sticky 1.30\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-09-19 00:21+0800\n"
+"PO-Revision-Date: 2007-10-21 19:16+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -14,21 +14,16 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: sticky-options.php:38
-#: sticky-options.php:136
-msgid "Update Options"
-msgstr ""
-
-#: sticky-options.php:45
+#: sticky-options.php:43
 msgid "Sticky Options Updated"
 msgstr ""
 
-#: sticky-options.php:48
+#: sticky-options.php:46
 msgid "No Sticky Option Updated"
 msgstr ""
 
 #: sticky-options.php:52
-#: sticky-options.php:185
+#: sticky-options.php:188
 msgid "UNINSTALL WP-Sticky"
 msgstr ""
 
@@ -48,7 +43,7 @@ msgid "Error deleting Setting Key '%s'."
 msgstr ""
 
 #: sticky-options.php:94
-#: sticky-options.php:145
+#: sticky-options.php:148
 msgid "Uninstall WP-Sticky"
 msgstr ""
 
@@ -61,70 +56,71 @@ msgstr ""
 msgid "Sticky Options"
 msgstr ""
 
-#: sticky-options.php:109
-msgid "Categories Only:"
+#: sticky-options.php:108
+#: sticky-options.php:140
+msgid "Update Options &raquo;"
 msgstr ""
 
 #: sticky-options.php:112
-#: sticky-options.php:122
-msgid "No"
-msgstr ""
-
-#: sticky-options.php:113
-#: sticky-options.php:123
-#: sticky-options.php:184
-msgid "Yes"
+msgid "Categories Only:"
 msgstr ""
 
 #: sticky-options.php:115
+#: sticky-options.php:125
+msgid "No"
+msgstr ""
+
+#: sticky-options.php:116
+#: sticky-options.php:126
+#: sticky-options.php:187
+msgid "Yes"
+msgstr ""
+
+#: sticky-options.php:118
 msgid "Display announcement and sticky posts only when viewing categories."
 msgstr ""
 
-#: sticky-options.php:119
+#: sticky-options.php:122
 msgid "Display Date:"
 msgstr ""
 
-#: sticky-options.php:125
+#: sticky-options.php:128
 msgid "Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts."
 msgstr ""
 
-#: sticky-options.php:129
+#: sticky-options.php:132
 msgid "Announcement Banner:"
 msgstr ""
 
-#: sticky-options.php:132
+#: sticky-options.php:135
 msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
 msgstr ""
 
-#: sticky-options.php:136
-msgid "Cancel"
-msgstr ""
-
-#: sticky-options.php:147
+#: sticky-options.php:150
 msgid "Deactivating WP-Sticky plugin does not remove any data that may have been created, such as the sticky options. To completely remove this plugin, you can uninstall it here."
 msgstr ""
 
-#: sticky-options.php:150
+#: sticky-options.php:153
 msgid "WARNING:"
 msgstr ""
 
-#: sticky-options.php:151
+#: sticky-options.php:154
 msgid "Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first."
 msgstr ""
 
-#: sticky-options.php:154
+#: sticky-options.php:157
 msgid "The following WordPress Options/Tables will be DELETED:"
 msgstr ""
 
-#: sticky-options.php:158
+#: sticky-options.php:161
 msgid "WordPress Options"
 msgstr ""
 
-#: sticky-options.php:159
+#: sticky-options.php:162
 msgid "WordPress Tables"
 msgstr ""
 
-#: sticky-options.php:185
+#: sticky-options.php:188
 msgid ""
 "You Are About To Uninstall WP-Sticky From WordPress.\\n"
 "This Action Is Not Reversible.\\n"
@@ -132,23 +128,23 @@ msgid ""
 " Choose [Cancel] To Stop, [OK] To Uninstall."
 msgstr ""
 
-#: sticky.php:46
-#: sticky.php:110
-#: sticky.php:254
+#: wp-sticky.php:46
+#: wp-sticky.php:110
+#: wp-sticky.php:254
 msgid "Sticky"
 msgstr ""
 
-#: sticky.php:113
-#: sticky.php:253
-#: sticky.php:283
+#: wp-sticky.php:113
+#: wp-sticky.php:253
+#: wp-sticky.php:283
 msgid "Announcement"
 msgstr ""
 
-#: sticky.php:251
+#: wp-sticky.php:251
 msgid "Post Sticky Status"
 msgstr ""
 
-#: sticky.php:255
+#: wp-sticky.php:255
 msgid "Normal"
 msgstr ""
 

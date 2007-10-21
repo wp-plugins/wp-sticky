@@ -3,7 +3,7 @@
 Plugin Name: WP-Sticky
 Plugin URI: http://lesterchan.net/portfolio/programming.php
 Description: Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by Owen Winkler.
-Version: 1.10
+Version: 1.30
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 */
@@ -31,7 +31,7 @@ Author URI: http://lesterchan.net
 ### Create Text Domain For Translations
 add_action('init', 'sticky_textdomain');
 function sticky_textdomain() {
-	load_plugin_textdomain('wp-sticky', 'wp-content/plugins/sticky');
+	load_plugin_textdomain('wp-sticky', 'wp-content/plugins/wp-sticky');
 }
 
 
@@ -43,7 +43,7 @@ $wpdb->sticky = $table_prefix . 'sticky';
 add_action('admin_menu', 'sticky_menu');
 function sticky_menu() {
 	if (function_exists('add_options_page')) {
-		add_options_page(__('Sticky', 'wp-sticky'), __('Sticky', 'wp-sticky'), 'manage_options', 'sticky/sticky-options.php');
+		add_options_page(__('Sticky', 'wp-sticky'), __('Sticky', 'wp-sticky'), 'manage_options', 'wp-sticky/sticky-options.php');
 	}
 }
 
@@ -260,7 +260,7 @@ function sticky_admin() {
 
 
 ### Function: Sticky Init
-add_action('activate_sticky/sticky.php', 'sticky_init');
+add_action('activate_wp-sticky/wp-sticky.php', 'sticky_init');
 function sticky_init() {
 	global $wpdb;
 	if(@is_file(ABSPATH.'/wp-admin/upgrade-functions.php')) {
