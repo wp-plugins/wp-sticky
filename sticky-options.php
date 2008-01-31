@@ -131,7 +131,7 @@ switch($mode) {
 		<tr>
 			<td valign="top"><strong><?php _e('Announcement Banner:', 'wp-sticky'); ?></strong></td>
 			<td>
-				<input type="text" name="announcement_banner" size="60" value="<?php echo htmlentities($sticky_options['announcement_banner']); ?>" />
+				<input type="text" name="announcement_banner" size="60" value="<?php echo htmlspecialchars($sticky_options['announcement_banner']); ?>" />
 				<br /><?php _e('This banner is displayed instead of the date if you choose \'No\' for <strong>Display Date</strong>.', 'wp-sticky'); ?>
 			</td>
 		</tr>
