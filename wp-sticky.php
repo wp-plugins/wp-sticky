@@ -70,19 +70,32 @@ if(!function_exists('check_in_category')) {
 }
 
 
+### Function: Check For Pages To Disable Sticky
+function disable_sticky() {
+	$pages = array('edit-pages.php');
+	foreach($pages as $page) {
+		if(strpos($_SERVER['REQUEST_URI'], $page) !== false) {
+			return true;
+		}
+	}
+}
+
+
 ### Function: Sticky Query
-if(intval(get_sticky_option('category_only')) == 1) {
-	if(check_in_category()) {
+if(!disable_sticky()) {
+	if(intval(get_sticky_option('category_only')) == 1) {
+		if(check_in_category()) {
+			add_filter('posts_fields', 'sticky_fields');
+			//add_filter('posts_join', 'sticky_join');
+			add_filter('posts_join_paged', 'sticky_join');
+			add_filter('posts_orderby', 'sticky_orderby', 1);
+		}
+	} else {
 		add_filter('posts_fields', 'sticky_fields');
 		//add_filter('posts_join', 'sticky_join');
 		add_filter('posts_join_paged', 'sticky_join');
 		add_filter('posts_orderby', 'sticky_orderby', 1);
 	}
-} else {
-	add_filter('posts_fields', 'sticky_fields');
-	//add_filter('posts_join', 'sticky_join');
-	add_filter('posts_join_paged', 'sticky_join');
-	add_filter('posts_orderby', 'sticky_orderby', 1);
 }
 function sticky_fields($content) {
 	global $wpdb;
