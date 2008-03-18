@@ -291,7 +291,7 @@ function sticky_metabox_admin() {
 
 
 ### Function: Add Meta/DBX Box
-add_action('admin_init', 'sticky_add_meta_box');
+add_action('admin_menu', 'sticky_add_meta_box');
 function sticky_add_meta_box() {
 	if (function_exists('add_meta_box')) {
 		add_meta_box('poststickystatusdiv', __('Post Sticky Status', 'wp-sticky'), 'sticky_metabox_admin', 'post');
