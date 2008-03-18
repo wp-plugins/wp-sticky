@@ -249,9 +249,8 @@ function delete_sticky_admin_process($post_ID) {
 }
 
 
-### Function: Add Sticky To Admin
-add_action('dbx_post_sidebar', 'sticky_admin');
-function sticky_admin() {
+### Function: Add Sticky DBX Box To WP < 2.5 Admin
+function sticky_dbx_admin() {
 	global $wpdb;
 	$edit_post = intval($_GET['post']);
 	$post_status_sticky_id = 0;
@@ -271,6 +270,36 @@ function sticky_admin() {
 <?php
 }
 
+
+### Function: Add Meta Box To WP >= 2.5 Admin
+function sticky_metabox_admin() {
+	global $wpdb;
+	$edit_post = intval($_GET['post']);
+	$post_status_sticky_id = 0;
+	$post_status_sticky_status  = 0;
+	if($edit_post > 0) {
+		$post_status_sticky_status = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $edit_post"));
+	}
+?>
+	<label for="post_status_announcement" class="selectit"><input type="radio" id="post_status_announcement" name="post_status_sticky" value="2"<?php checked($post_status_sticky_status, 2); ?>/>&nbsp;<?php _e('Announcement', 'wp-sticky'); ?></label>
+	<br />
+	<label for="post_status_sticky" class="selectit"><input type="radio" id="post_status_sticky" name="post_status_sticky" value="1"<?php checked($post_status_sticky_status, 1); ?>/>&nbsp;<?php _e('Sticky', 'wp-sticky'); ?></label>
+	<br />
+	<label for="post_status_normal" class="selectit"><input type="radio" id="post_status_normal" name="post_status_sticky" value="0"<?php checked($post_status_sticky_status, 0); ?>/>&nbsp;<?php _e('Normal', 'wp-sticky'); ?></label>
+<?php
+}
+
+
+### Function: Add Meta/DBX Box
+add_action('admin_init', 'sticky_add_meta_box');
+function sticky_add_meta_box() {
+	if (function_exists('add_meta_box')) {
+		add_meta_box('poststickystatusdiv', __('Post Sticky Status', 'wp-sticky'), 'sticky_metabox_admin', 'post');
+	} else {
+		add_action('dbx_post_sidebar', 'sticky_dbx_admin');
+	} 
+}
+ 
 
 ### Function: Sticky Init
 add_action('activate_wp-sticky/wp-sticky.php', 'sticky_init');

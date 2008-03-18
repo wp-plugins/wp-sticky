@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.30\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-02-14 01:30+0800\n"
+"PO-Revision-Date: 2008-03-18 22:56+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -130,21 +130,25 @@ msgstr ""
 
 #: wp-sticky.php:46
 #: wp-sticky.php:123
-#: wp-sticky.php:267
+#: wp-sticky.php:266
+#: wp-sticky.php:286
 msgid "Sticky"
 msgstr ""
 
 #: wp-sticky.php:126
-#: wp-sticky.php:266
-#: wp-sticky.php:296
+#: wp-sticky.php:265
+#: wp-sticky.php:284
+#: wp-sticky.php:325
 msgid "Announcement"
 msgstr ""
 
-#: wp-sticky.php:264
+#: wp-sticky.php:263
+#: wp-sticky.php:297
 msgid "Post Sticky Status"
 msgstr ""
 
-#: wp-sticky.php:268
+#: wp-sticky.php:267
+#: wp-sticky.php:288
 msgid "Normal"
 msgstr ""
 
