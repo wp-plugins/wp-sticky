@@ -305,6 +305,7 @@ function sticky_add_meta_box() {
 ### Function: Sticky Init
 add_action('activate_wp-sticky/wp-sticky.php', 'sticky_init');
 function sticky_init() {
+	global $wpdb;
 	if(@is_file(ABSPATH.'/wp-admin/upgrade-functions.php')) {
 		include_once(ABSPATH.'/wp-admin/upgrade-functions.php');
 	} elseif(@is_file(ABSPATH.'/wp-admin/includes/upgrade.php')) {
