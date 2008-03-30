@@ -104,12 +104,9 @@ switch($mode) {
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 <div class="wrap">
 	<h2><?php _e('Sticky Options', 'wp-sticky'); ?></h2>
-	<p class="submit">
-		<input type="submit" name="Submit" class="button" value="<?php _e('Update Options &raquo;', 'wp-sticky'); ?>" />
-	</p>
-	<table width="100%" cellspacing="3" cellpadding="3" border="0">
+	<table class="form-table">
 		<tr>
-			<td valign="top"><strong><?php _e('Categories Only:', 'wp-sticky'); ?></strong></td>
+			<th scope="row" valign="top"><?php _e('Categories Only:', 'wp-sticky'); ?></th>
 			<td>
 				<select name="category_only">
 					<option value="0"<?php selected('0', $sticky_options['category_only']); ?>><?php _e('No', 'wp-sticky'); ?></option>
@@ -119,7 +116,7 @@ switch($mode) {
 			</td>
 		</tr>
 		<tr>
-			<td valign="top"><strong><?php _e('Display Date:', 'wp-sticky'); ?></strong></td>
+			<th scope="row" valign="top"><?php _e('Display Date:', 'wp-sticky'); ?></th>
 			<td>
 				<select name="display_date">
 					<option value="0"<?php selected('0', $sticky_options['display_date']); ?>><?php _e('No', 'wp-sticky'); ?></option>
@@ -129,7 +126,7 @@ switch($mode) {
 			</td>
 		</tr>
 		<tr>
-			<td valign="top"><strong><?php _e('Announcement Banner:', 'wp-sticky'); ?></strong></td>
+			<th scope="row" valign="top"><?php _e('Announcement Banner:', 'wp-sticky'); ?></th>
 			<td>
 				<input type="text" name="announcement_banner" size="60" value="<?php echo htmlspecialchars($sticky_options['announcement_banner']); ?>" />
 				<br /><?php _e('This banner is displayed instead of the date if you choose \'No\' for <strong>Display Date</strong>.', 'wp-sticky'); ?>
@@ -137,10 +134,11 @@ switch($mode) {
 		</tr>
 	</table>
 	<p class="submit">
-		<input type="submit" name="Submit" class="button" value="<?php _e('Update Options &raquo;', 'wp-sticky'); ?>" />
+		<input type="submit" name="Submit" class="button" value="<?php _e('Save Changes', 'wp-sticky'); ?>" />
 	</p>
 </div>
 </form>
+<p>&nbsp;</p>
 
 <!-- Uninstall WP-Sticky -->
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"> 
@@ -156,13 +154,15 @@ switch($mode) {
 	<p style="text-align: left; color: red">
 		<strong><?php _e('The following WordPress Options/Tables will be DELETED:', 'wp-sticky'); ?></strong><br />
 	</p>
-	<table width="70%"  border="0" cellspacing="3" cellpadding="3">
-		<tr class="thead">
-			<td align="center"><strong><?php _e('WordPress Options', 'wp-sticky'); ?></strong></td>
-			<td align="center"><strong><?php _e('WordPress Tables', 'wp-sticky'); ?></strong></td>
-		</tr>
+	<table class="widefat">
+		<thead>
+			<tr>
+				<th><?php _e('WordPress Options', 'wp-sticky'); ?></th>
+				<th><?php _e('WordPress Tables', 'wp-sticky'); ?></th>
+			</tr>
+		</thead>
 		<tr>
-			<td valign="top" style="background-color: #eee;">
+			<td valign="top">
 				<ol>
 				<?php
 					foreach($sticky_settings as $settings) {
@@ -171,7 +171,7 @@ switch($mode) {
 				?>
 				</ol>
 			</td>
-			<td valign="top" style="background-color: #eee;">
+			<td valign="top" class="alternate">
 				<ol>
 				<?php
 					foreach($sticky_tables as $tables) {

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.30\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-03-30 16:47+0800\n"
+"PO-Revision-Date: 2008-03-30 17:39+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <lesterchan@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgid "Error deleting Setting Key '%s'."
 msgstr ""
 
 #: sticky-options.php:94
-#: sticky-options.php:148
+#: sticky-options.php:146
 msgid "Uninstall WP-Sticky"
 msgstr ""
 
@@ -56,67 +56,66 @@ msgstr ""
 msgid "Sticky Options"
 msgstr ""
 
-#: sticky-options.php:108
-#: sticky-options.php:140
-msgid "Update Options &raquo;"
-msgstr ""
-
-#: sticky-options.php:112
+#: sticky-options.php:109
 msgid "Categories Only:"
 msgstr ""
 
-#: sticky-options.php:115
-#: sticky-options.php:125
+#: sticky-options.php:112
+#: sticky-options.php:122
 msgid "No"
 msgstr ""
 
-#: sticky-options.php:116
-#: sticky-options.php:126
+#: sticky-options.php:113
+#: sticky-options.php:123
 #: sticky-options.php:187
 msgid "Yes"
 msgstr ""
 
-#: sticky-options.php:118
+#: sticky-options.php:115
 msgid "Display announcement and sticky posts only when viewing categories."
 msgstr ""
 
-#: sticky-options.php:122
+#: sticky-options.php:119
 msgid "Display Date:"
 msgstr ""
 
-#: sticky-options.php:128
+#: sticky-options.php:125
 msgid "Displays the date instead of the <strong>Announcement Banner</strong> on announcement posts."
 msgstr ""
 
-#: sticky-options.php:132
+#: sticky-options.php:129
 msgid "Announcement Banner:"
 msgstr ""
 
-#: sticky-options.php:135
+#: sticky-options.php:132
 msgid "This banner is displayed instead of the date if you choose 'No' for <strong>Display Date</strong>."
 msgstr ""
 
-#: sticky-options.php:150
+#: sticky-options.php:137
+msgid "Save Changes"
+msgstr ""
+
+#: sticky-options.php:148
 msgid "Deactivating WP-Sticky plugin does not remove any data that may have been created, such as the sticky options. To completely remove this plugin, you can uninstall it here."
 msgstr ""
 
-#: sticky-options.php:153
+#: sticky-options.php:151
 msgid "WARNING:"
 msgstr ""
 
-#: sticky-options.php:154
+#: sticky-options.php:152
 msgid "Once uninstalled, this cannot be undone. You should use a Database Backup plugin of WordPress to back up all the data first."
 msgstr ""
 
-#: sticky-options.php:157
+#: sticky-options.php:155
 msgid "The following WordPress Options/Tables will be DELETED:"
 msgstr ""
 
-#: sticky-options.php:161
+#: sticky-options.php:160
 msgid "WordPress Options"
 msgstr ""
 
-#: sticky-options.php:162
+#: sticky-options.php:161
 msgid "WordPress Tables"
 msgstr ""
 
