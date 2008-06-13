@@ -3,7 +3,7 @@
 Plugin Name: WP-Sticky
 Plugin URI: http://lesterchan.net/portfolio/programming/php/
 Description: Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by Owen Winkler.
-Version: 1.30
+Version: 1.31
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 */
@@ -205,19 +205,19 @@ function sticky_the_title($content) {
 
 
 ### Function: Sticky The Content
-//add_filter('the_content', 'sticky_the_content');
+add_filter('the_content', 'sticky_the_content');
 function sticky_the_content($content) {
 	global $post;
 	$css_style = '';
 	switch($post->sticky_status) {
 		case 1:
-			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').parentNode.className += 'sticky_post';</script>";
+			$css_class = 'sticky_post';
 			break;
 		case 2:
-			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').parentNode.className += 'announcement_post';</script>";
+			$css_style = 'announcement_post';
 			break;
 	}
-	return $css_style.$content;
+	return '<div id="'.$css_class.'">'.$content.'</div>';
 }
 
 
