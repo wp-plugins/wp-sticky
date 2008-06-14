@@ -211,13 +211,13 @@ function sticky_the_content($content) {
 	$css_style = '';
 	switch($post->sticky_status) {
 		case 1:
-			$css_class = 'sticky_post';
+			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').className += 'sticky_post';</script>";
 			break;
 		case 2:
-			$css_style = 'announcement_post';
+			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').className += 'announcement_post';</script>";
 			break;
 	}
-	return '<div id="'.$css_class.'">'.$content.'</div>';
+	return $css_style;
 }
 
 
