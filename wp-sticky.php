@@ -44,7 +44,7 @@ $wpdb->sticky = $wpdb->prefix.'sticky';
 add_action('admin_menu', 'sticky_menu');
 function sticky_menu() {
 	if (function_exists('add_options_page')) {
-		add_options_page(__('Sticky', 'wp-sticky'), __('Sticky', 'wp-sticky'), 'manage_options', 'wp-sticky/sticky-options.php');
+		add_options_page(__('WP-Sticky', 'wp-sticky'), __('WP-Sticky', 'wp-sticky'), 'manage_options', 'wp-sticky/sticky-options.php');
 	}
 }
 
@@ -211,13 +211,13 @@ function sticky_the_content($content) {
 	$css_style = '';
 	switch($post->sticky_status) {
 		case 1:
-			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').className += 'sticky_post';</script>";
+			$css_style = 'sticky_post';
 			break;
 		case 2:
-			$css_style = "<script type=\"text/javascript\">window.document.getElementById('post-{$post->ID}').className += 'announcement_post';</script>";
+			$css_style = 'announcement_post';
 			break;
 	}
-	return $css_style;
+	return '<div class="'.$css_style.'">'.$content.'</div>'."\n";
 }
 
 

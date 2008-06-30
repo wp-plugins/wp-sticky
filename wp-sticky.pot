@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-13 18:12+0800\n"
-"PO-Revision-Date: 2008-06-13 18:12+0800\n"
+"POT-Creation-Date: 2008-07-01 02:55+0800\n"
+"PO-Revision-Date: 2008-07-01 02:55+0800\n"
 "Last-Translator: Lester Chan <lesterchan@gmail.com>\n"
 "Language-Team: Lester Chan <lesterchan@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -129,6 +129,9 @@ msgid ""
 msgstr ""
 
 #: wp-sticky.php:47
+msgid "WP-Sticky"
+msgstr ""
+
 #: wp-sticky.php:124
 #: wp-sticky.php:267
 #: wp-sticky.php:287
