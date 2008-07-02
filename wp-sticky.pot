@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Sticky 1.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-01 02:55+0800\n"
-"PO-Revision-Date: 2008-07-01 02:55+0800\n"
+"POT-Creation-Date: 2008-07-03 00:30+0800\n"
+"PO-Revision-Date: 2008-07-03 00:30+0800\n"
 "Last-Translator: Lester Chan <lesterchan@gmail.com>\n"
 "Language-Team: Lester Chan <lesterchan@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -128,30 +128,30 @@ msgid ""
 " Choose [Cancel] To Stop, [OK] To Uninstall."
 msgstr ""
 
-#: wp-sticky.php:47
+#: wp-sticky.php:51
 msgid "WP-Sticky"
 msgstr ""
 
-#: wp-sticky.php:124
-#: wp-sticky.php:267
-#: wp-sticky.php:287
+#: wp-sticky.php:128
+#: wp-sticky.php:271
+#: wp-sticky.php:291
 msgid "Sticky"
 msgstr ""
 
-#: wp-sticky.php:127
-#: wp-sticky.php:266
-#: wp-sticky.php:285
-#: wp-sticky.php:326
+#: wp-sticky.php:131
+#: wp-sticky.php:270
+#: wp-sticky.php:289
+#: wp-sticky.php:330
 msgid "Announcement"
 msgstr ""
 
-#: wp-sticky.php:264
-#: wp-sticky.php:298
+#: wp-sticky.php:268
+#: wp-sticky.php:302
 msgid "Post Sticky Status"
 msgstr ""
 
-#: wp-sticky.php:268
-#: wp-sticky.php:289
+#: wp-sticky.php:272
+#: wp-sticky.php:293
 msgid "Normal"
 msgstr ""
 
