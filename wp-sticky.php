@@ -212,16 +212,16 @@ function sticky_the_title($content) {
 add_filter('the_content', 'sticky_the_content');
 function sticky_the_content($content) {
 	global $post;
-	$css_style = '';
 	switch($post->sticky_status) {
 		case 1:
-			$css_style = 'sticky_post';
+			return '<div class="sticky_post">'.$content.'</div>'."\n";
 			break;
 		case 2:
-			$css_style = 'announcement_post';
+			return '<div class="announcement_post">'.$content.'</div>'."\n";
 			break;
+		default:
+			return $content;
 	}
-	return '<div class="'.$css_style.'">'.$content.'</div>'."\n";
 }
 
 
