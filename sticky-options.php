@@ -2,7 +2,7 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.5 Plugin: WP-Sticky 1.31										|
+|	WordPress 2.7 Plugin: WP-Sticky 1.40										|
 |	Copyright (c) 2008 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
@@ -103,6 +103,7 @@ switch($mode) {
 <!-- Sticky Options -->
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 <div class="wrap">
+	<?php screen_icon(); ?>
 	<h2><?php _e('Sticky Options', 'wp-sticky'); ?></h2>
 	<table class="form-table">
 		<tr>
@@ -143,7 +144,7 @@ switch($mode) {
 <!-- Uninstall WP-Sticky -->
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"> 
 <div class="wrap"> 
-	<h2><?php _e('Uninstall WP-Sticky', 'wp-sticky'); ?></h2>
+	<h3><?php _e('Uninstall WP-Sticky', 'wp-sticky'); ?></h3>
 	<p style="text-align: left;">
 		<?php _e('Deactivating WP-Sticky plugin does not remove any data that may have been created, such as the sticky options. To completely remove this plugin, you can uninstall it here.', 'wp-sticky'); ?>
 	</p>

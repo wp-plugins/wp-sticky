@@ -3,7 +3,7 @@
 Plugin Name: WP-Sticky
 Plugin URI: http://lesterchan.net/portfolio/programming/php/
 Description: Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by Owen Winkler.
-Version: 1.31
+Version: 1.40
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 */
@@ -31,11 +31,7 @@ Author URI: http://lesterchan.net
 ### Create Text Domain For Translations
 add_action('init', 'sticky_textdomain');
 function sticky_textdomain() {
-	if (!function_exists('wp_print_styles')) {
-		load_plugin_textdomain('wp-sticky', 'wp-content/plugins/wp-sticky');
-	} else {
-		load_plugin_textdomain('wp-sticky', false, 'wp-sticky');
-	}
+	load_plugin_textdomain('wp-sticky', false, 'wp-sticky');
 }
 
 
@@ -140,7 +136,7 @@ function post_sticky_status($before = '', $after = '', $display = true) {
 
 
 ### Function: If Sticky Condition
-function is_sticky() {
+function is_stickied() {
 	global $id, $post;
 	if($post->sticky_status == 1) {
 		return true;
@@ -181,7 +177,7 @@ function announcement_banner($display = true) {
 
 
 ### Function: Sticky The Date
-add_filter('the_date', 'sticky_the_date');
+add_filter('the_date', 'sticky_the_date', 1000);
 function sticky_the_date($content) {
 	global $post, $previousday, $printed_announcement;
 	if($post->sticky_status == 2 && intval(get_sticky_option('display_date')) == 0) {
@@ -254,28 +250,6 @@ function delete_sticky_admin_process($post_ID) {
 }
 
 
-### Function: Add Sticky DBX Box To WP < 2.5 Admin
-function sticky_dbx_admin() {
-	global $wpdb;
-	$edit_post = intval($_GET['post']);
-	$post_status_sticky_id = 0;
-	$post_status_sticky_status  = 0;
-	if($edit_post > 0) {
-		$post_status_sticky_status = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $edit_post"));
-	}
-?>
-<fieldset id="poststickystatusdiv" class="dbx-box">
-	<h3 class="dbx-handle"><?php _e('Post Sticky Status', 'wp-sticky'); ?></h3> 
-	<div class="dbx-content">
-		<label for="post_status_announcement" class="selectit"><input type="radio" id="post_status_announcement" name="post_status_sticky" value="2"<?php checked($post_status_sticky_status, 2); ?>/>&nbsp;<?php _e('Announcement', 'wp-sticky'); ?></label>
-		<label for="post_status_sticky" class="selectit"><input type="radio" id="post_status_sticky" name="post_status_sticky" value="1"<?php checked($post_status_sticky_status, 1); ?>/>&nbsp;<?php _e('Sticky', 'wp-sticky'); ?></label>
-		<label for="post_status_normal" class="selectit"><input type="radio" id="post_status_normal" name="post_status_sticky" value="0"<?php checked($post_status_sticky_status, 0); ?>/>&nbsp;<?php _e('Normal', 'wp-sticky'); ?></label>
-	</div>
-</fieldset>
-<?php
-}
-
-
 ### Function: Add Meta Box To WP >= 2.5 Admin
 function sticky_metabox_admin() {
 	global $wpdb;
@@ -298,11 +272,7 @@ function sticky_metabox_admin() {
 ### Function: Add Meta/DBX Box
 add_action('admin_menu', 'sticky_add_meta_box');
 function sticky_add_meta_box() {
-	if (function_exists('add_meta_box')) {
-		add_meta_box('poststickystatusdiv', __('Post Sticky Status', 'wp-sticky'), 'sticky_metabox_admin', 'post');
-	} else {
-		add_action('dbx_post_sidebar', 'sticky_dbx_admin');
-	} 
+	add_meta_box('poststickystatusdiv', __('Post Sticky Status', 'wp-sticky'), 'sticky_metabox_admin', 'post', 'side');
 }
  
 
