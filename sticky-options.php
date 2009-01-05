@@ -2,8 +2,8 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.7 Plugin: WP-Sticky 1.40										|
-|	Copyright (c) 2008 Lester "GaMerZ" Chan									|
+|	WordPress 2.7 Plugin: WP-Sticky 1.41										|
+|	Copyright (c) 2009 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
 |	- Lester "GaMerZ" Chan															|

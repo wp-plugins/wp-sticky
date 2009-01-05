@@ -3,14 +3,14 @@
 Plugin Name: WP-Sticky
 Plugin URI: http://lesterchan.net/portfolio/programming/php/
 Description: Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by Owen Winkler.
-Version: 1.40
+Version: 1.41
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 */
 
 
 /*  
-	Copyright 2008  Lester Chan  (email : lesterchan@gmail.com)
+	Copyright 2009  Lester Chan  (email : lesterchan@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -225,18 +225,20 @@ function sticky_the_content($content) {
 add_action('save_post', 'add_sticky_admin_process');
 function add_sticky_admin_process($post_ID) {
 	global $wpdb;
-	$post_status_sticky_status = intval($_POST['post_status_sticky']);
-	// Normal Posts
-	if($post_status_sticky_status == 0 && intval($post_ID) > 0) {
-		$wpdb->query("DELETE FROM $wpdb->sticky WHERE sticky_post_id = $post_ID");
-	// Sticky Post/Announcement Post
-	} else {
-		// Ensure No Duplicate Field
-		$check = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $post_ID"));
-		if($check == 0) {
-			$wpdb->query("INSERT INTO $wpdb->sticky VALUES($post_ID, $post_status_sticky_status)");
+	if(!wp_is_post_revision($post_ID)) {
+		$post_status_sticky_status = intval($_POST['post_status_sticky']);
+		// Normal Posts
+		if($post_status_sticky_status == 0 && intval($post_ID) > 0) {
+			$wpdb->query("DELETE FROM $wpdb->sticky WHERE sticky_post_id = $post_ID");
+		// Sticky Post/Announcement Post
 		} else {
-			$wpdb->query("UPDATE $wpdb->sticky SET sticky_status = $post_status_sticky_status WHERE sticky_post_id = $post_ID");
+			// Ensure No Duplicate Field
+			$check = intval($wpdb->get_var("SELECT sticky_status FROM $wpdb->sticky WHERE sticky_post_id = $post_ID"));
+			if($check == 0) {
+				$wpdb->query("INSERT INTO $wpdb->sticky VALUES($post_ID, $post_status_sticky_status)");
+			} else {
+				$wpdb->query("UPDATE $wpdb->sticky SET sticky_status = $post_status_sticky_status WHERE sticky_post_id = $post_ID");
+			}
 		}
 	}
 }
@@ -246,7 +248,9 @@ function add_sticky_admin_process($post_ID) {
 add_action('delete_post', 'delete_sticky_admin_process');
 function delete_sticky_admin_process($post_ID) {
 	global $wpdb;
-	$wpdb->query("DELETE FROM $wpdb->sticky WHERE sticky_post_id = $post_ID");
+	if(!wp_is_post_revision($post_ID)) {
+		$wpdb->query("DELETE FROM $wpdb->sticky WHERE sticky_post_id = $post_ID");
+	}
 }
 
 
