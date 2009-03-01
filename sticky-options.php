@@ -101,7 +101,7 @@ switch($mode) {
 ?>
 <?php if(!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade"><p>'.$text.'</p></div>'; } ?>
 <!-- Sticky Options -->
-<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo plugin_basename(__FILE__); ?>">
 <div class="wrap">
 	<?php screen_icon(); ?>
 	<h2><?php _e('Sticky Options', 'wp-sticky'); ?></h2>
@@ -142,7 +142,7 @@ switch($mode) {
 <p>&nbsp;</p>
 
 <!-- Uninstall WP-Sticky -->
-<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"> 
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo plugin_basename(__FILE__); ?>">
 <div class="wrap"> 
 	<h3><?php _e('Uninstall WP-Sticky', 'wp-sticky'); ?></h3>
 	<p style="text-align: left;">
