@@ -34,6 +34,7 @@ $sticky_settings = array('sticky_options');
 ### Form Processing
 // Update Options
 if(!empty($_POST['Submit'])) {
+	check_admin_referer('wp-sticky_options');
 	$text = '';
 	$sticky_options['display_date'] = intval($_POST['display_date']);
 	$sticky_options['category_only'] = intval($_POST['category_only']);
@@ -101,7 +102,8 @@ switch($mode) {
 ?>
 <?php if(!empty($text)) { echo '<!-- Last Action --><div id="message" class="updated fade"><p>'.$text.'</p></div>'; } ?>
 <!-- Sticky Options -->
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo plugin_basename(__FILE__); ?>">
+<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
+<?php wp_nonce_field('wp-sticky_options'); ?>
 <div class="wrap">
 	<?php screen_icon(); ?>
 	<h2><?php _e('Sticky Options', 'wp-sticky'); ?></h2>
