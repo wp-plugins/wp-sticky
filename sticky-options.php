@@ -144,7 +144,7 @@ switch($mode) {
 <p>&nbsp;</p>
 
 <!-- Uninstall WP-Sticky -->
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo plugin_basename(__FILE__); ?>">
+<form method="post" action="<?php echo admin_url('admin.php?page='.plugin_basename(__FILE__)); ?>">
 <div class="wrap"> 
 	<h3><?php _e('Uninstall WP-Sticky', 'wp-sticky'); ?></h3>
 	<p style="text-align: left;">
