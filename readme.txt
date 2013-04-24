@@ -1,11 +1,11 @@
 === WP-Sticky ===
-Contributors: GamerZ
-Donate link: http://lesterchan.net/wordpress
-Tags: sticky, post, announcement, sticky post, stick, important, adhesive
-Requires at least: 2.7
-Stable tag: trunk
+Contributors: GamerZ  
+Donate link: http://lesterchan.net/site/donation/  
+Tags: sticky, post, announcement, sticky post, stick, important, adhesive  
+Requires at least: 2.7  
+Stable tag: trunk  
 
-Adds a sticky post feature to your WordPress's blog.
+[DEPRECATED] Adds a sticky post feature to your WordPress's blog.
 
 == Description ==
 
@@ -24,7 +24,9 @@ It is the exact same readme.html is included in the zip package.
 
 == Screenshots ==
 
-[WP-Sticky Screenshots](http://lesterchan.net/wordpress/screenshots/browse/wp-sticky/ "WP-Sticky Screenshots")
+1. Sticky Post
+2. Announcement Post
+3. Admin - Sticky Options
 
 == Frequently Asked Questions ==
 
