@@ -3,7 +3,7 @@ Contributors: GamerZ
 Donate link: http://lesterchan.net/site/donation/  
 Tags: sticky, post, announcement, sticky post, stick, important, adhesive  
 Requires at least: 3.3  
-Tested up to: 4.1  
+Tested up to: 4.2  
 Stable tag: trunk  
 
 [DEPRECATED] Adds a sticky post feature to your WordPress's blog.
@@ -21,7 +21,7 @@ Adds a sticky post feature to your WordPress's blog. Modified from Adhesive by O
 * Plugin icon by [Freepik](http://www.freepik.com) from [Flaticon](http://www.flaticon.com)
 
 = Donations =
-I spent most of my free time creating, updating, maintaining and supporting these plugins, if you really love my plugins and could spare me a couple of bucks, I will really appericiate it. If not feel free to use it without any obligations.
+I spent most of my free time creating, updating, maintaining and supporting these plugins, if you really love my plugins and could spare me a couple of bucks, I will really appreciate it. If not feel free to use it without any obligations.
 
 == Changelog ==
 = Version 1.52 =
